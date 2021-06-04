@@ -115,10 +115,11 @@ def main(kraken_api, kraken_ws, pairs, channels, depth, output_folder):
                 logging.info(f'Starting writer for: {pair}, {channel}')
                 _thread.start_new_thread(pair_writer, (kraken_ws, pair, channel, depth, writer))
                 # Sleep a bit in order to avoid "Handshake status 429 Too Many Requests"
-                time.sleep(3)
+                time.sleep(1)
             except Exception as e:
                 logging.error(f'Cannot save messages for {pair}, {channel} due to:\n{e}')
 
+    logging.info(f'Done subscribing for {len(pairs) * len(channels)} channels')
     while True:
         time.sleep(5)
         logging.debug("Main thread: %d" % time.time())
