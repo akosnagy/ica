@@ -1,0 +1,15 @@
+name: ica
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - click
+  - jsonlines
+  - numpy
+  - pip
+  - python=3.9
+  - requests
+  - wsaccel
+  - pip:
+    - websocket-client
+prefix: C:\Users\Jango\miniconda3\envs\ica
